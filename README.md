@@ -29,6 +29,7 @@ print json.dumps({ "value1": "Hello, %s!" % name })
 docker run -e API_KEY=<your-ifttt-key> \
            -e SECRET_TOKEN=<secret-token> \
            -v `pwd`/samples:/opt/bin \
+           -p 3001:3001 \
            kamikat/tttfi
 ```
 
