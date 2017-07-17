@@ -1,6 +1,6 @@
 # TTTFI
 
-[![npm](https://img.shields.io/npm/v/tttfi.svg?maxAge=2592000)](https://www.npmjs.com/package/tttfi)
+[![npm](https://img.shields.io/npm/v/tttfi.svg?maxAge=86400)](https://www.npmjs.com/package/tttfi)
 
 Middleware for IFTTT.
 
