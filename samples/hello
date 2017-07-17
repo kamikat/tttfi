@@ -1,0 +1,4 @@
+#!/usr/bin/env python2
+import json
+name = raw_input()
+print json.dumps({ "value1": "Hello, %s!" % name })
