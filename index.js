@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var { spawn } = require('child_process');
 var express = require('express');
 var parser = require('body-parser');
@@ -19,7 +21,7 @@ var createApp = (function({ apiKey, secret }) {
 
     var output = [];
     var cmd = req.params.event_name;
-    var child = spawn('sh', ['-c', cmd], { stdio: 'pipe' });
+    var child = spawn('/bin/sh', ['-c', cmd], { stdio: 'pipe' });
     var DEBUG = debug('ttt');
 
     DEBUG(`Process (PID ${child.pid}) created for "${cmd}".`)
