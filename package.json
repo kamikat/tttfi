@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/kamikat/tttfi/issues"
   },
-  "homepage": "https://github.com/kamikat/tttfi#readme"
+  "homepage": "https://github.com/kamikat/tttfi#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
 }
