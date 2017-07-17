@@ -4,6 +4,7 @@
   "description": "Middleware for IFTTT",
   "main": "index.js",
   "scripts": {
+    "start": "DEBUG=ttt supervisor index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,9 @@
   "homepage": "https://github.com/kamikat/tttfi#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "supervisor": "^0.12.0"
   }
 }
