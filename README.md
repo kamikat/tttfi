@@ -21,7 +21,7 @@ print json.dumps({ "value1": "Hello, %s!" % name })
 
 **STEP2** Run docker image:
 
-```sh
+```
 docker run -e API_KEY=<your-ifttt-key> \
            -e SECRET_TOKEN=<secret-token> \
            -v `pwd`/samples:/opt/bin \
@@ -39,7 +39,7 @@ NOTE: Pick up a random string as your `SECRET_TOKEN`.
 
 Test your configuration by sending some data using curl
 
-```sh
+```
 echo 'world' | curl -XPOST -d- https://your-domain.com/hello/secret/<secret-token>
 ```
 
