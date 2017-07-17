@@ -6,6 +6,8 @@ COPY package.json ./package.json
 RUN npm install && rm -rf /tmp/npm-*
 COPY . ./
 
+RUN apk --no-cache add python2
+
 ENV PATH=/opt/bin:$PATH
 ENV NODE_ENV=production
 ENV BIND_HOST=:: BIND_PORT=3001
