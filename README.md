@@ -15,7 +15,11 @@ Let's write a simple hello world in Python (you can find that in samples folder)
 ```python
 #!/usr/bin/env python2
 import json
+
+# Read body from stdin
 name = raw_input()
+
+# IFTTT supports up to 3 values (value1, value2, value3)
 print json.dumps({ "value1": "Hello, %s!" % name })
 ```
 
