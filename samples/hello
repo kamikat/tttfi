@@ -1,4 +1,8 @@
-#!/usr/bin/env python2
-import json
-name = raw_input()
-print json.dumps({ "value1": "Hello, %s!" % name })
+#!/bin/sh
+
+# Read body from stdin
+read NAME
+
+cat << EOF
+{"value1": "Hello, $NAME!"}
+EOF

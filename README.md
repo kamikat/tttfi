@@ -10,17 +10,18 @@ TTTFI picks up data from IFTTT webhook, pass data through scripts and send outpu
 
 **STEP1** Prepare scripts:
 
-Let's write a simple hello world in Python (you can find that in samples folder).
+Let's write a simple hello world in shell (you can find that in samples folder).
 
-```python
-#!/usr/bin/env python2
-import json
+```sh
+#!/bin/sh
 
 # Read body from stdin
-name = raw_input()
+NAME=read
 
-# IFTTT supports up to 3 values (value1, value2, value3)
-print json.dumps({ "value1": "Hello, %s!" % name })
+# Print response to IFTTT
+cat << EOF
+{"value1": "Hello, $NAME!"}
+EOF
 ```
 
 **STEP2** Run docker image:
@@ -30,7 +31,7 @@ docker run -e API_KEY=<your-ifttt-key> \
            -e SECRET_TOKEN=<secret-token> \
            -v `pwd`/samples:/opt/bin \
            -p 3001:3001 \
-           kamikat/tttfi:py2
+           kamikat/tttfi
 ```
 
 NOTE: Pick up a random string as your `SECRET_TOKEN`.
