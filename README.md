@@ -16,7 +16,7 @@ Let's write a simple hello world in shell (you can find that in samples folder).
 #!/bin/sh
 
 # Read body from stdin
-NAME=read
+read NAME
 
 # Print response to IFTTT
 cat << EOF
@@ -31,6 +31,7 @@ docker run -e API_KEY=<your-ifttt-key> \
            -e SECRET_TOKEN=<secret-token> \
            -v `pwd`/samples:/opt/bin \
            -p 3001:3001 \
+           --name tttfi \
            kamikat/tttfi
 ```
 
@@ -56,6 +57,34 @@ echo 'world' | curl -XPOST -d- https://your-domain.com/hello/secret/<secret-toke
 3. Set the url (for example `https://your-domain.com/hello/secret/<secret-token>`)
 4. Set **Method** to `POST` and **Content Type** to `text/plain` (the `hello` event requires simple text)
 5. Add any ingredient to **body**
+
+## Scripting with Python/Perl/Go...
+
+Scripts written in python or other platform can failed to start because they're not installed in container.
+
+Add required package after start the container:
+
+```
+docker exec tttfi apk --no-cache add <package-name>
+```
+
+Or run tttfi natively (see next section)
+
+## Native server
+
+TTTFI can run natively on *nix with ES6 compatible Node.js.
+
+```
+npm install -g tttfi
+```
+
+Run TTTFI:
+
+```
+PATH=<path-to-scripts>:$PATH API_KEY=<your-ifttt-key> SECRET_TOKEN=<secret-token> tttfi
+```
+
+Be careful that it executes ANYTHING in your `$PATH` with correct secret token.
 
 ## License
 
